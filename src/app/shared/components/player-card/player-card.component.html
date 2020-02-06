@@ -1,0 +1,28 @@
+<mat-card class="card">
+
+  <mat-card-header>
+    <img *ngIf='player.profile.plus' src="../../../../assets/images/misc/dota_plus_icon.png" mat-card-avatar>
+    <mat-card-title>{{player.profile.personaname}}</mat-card-title>
+
+    <mat-card-subtitle>MMR
+      <span class="ranking">{{player.competitive_rank || player.mmr_estimate.estimate}}</span>
+    </mat-card-subtitle>
+
+    <div class="rank-medal" *ngIf="player.rank_tier">
+      <img [src]="getRankMedalImageUrl(player.rank_tier).stars" id="stars">
+      <img [src]="getRankMedalImageUrl(player.rank_tier).medal" id="icon">
+    </div>
+
+  </mat-card-header>
+
+  <img class="pulsate" mat-card-image [src]="player.profile.avatarfull" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{player.profile.personaname}} is from {{player.profile.loccountrycode}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">STATS</button>
+    <button mat-raised-button color="accent">COMPARE</button>
+  </mat-card-actions>
+</mat-card>

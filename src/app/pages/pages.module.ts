@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 
 // Pages Modules
 import { PagesRoutingModule } from './pages.routing';
-import { HomeComponent } from './home/home.component';
+import { SharedModule } from '../shared/shared.module';
 
 // Pages Components
+import { HomeComponent } from './home/home.component';
+import { AngularMaterial } from '../shared/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    AngularMaterial,
+    SharedModule,
   ]
 })
 export class PagesModule { }

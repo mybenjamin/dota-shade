@@ -19,7 +19,7 @@ $dota-shade-accent: mat-palette($mat-pink, A200, A100, A400);
 $dota-shade-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$dota-shade-theme: mat-light-theme($dota-shade-primary, $dota-shade-accent, $dota-shade-warn);
+$dota-shade-theme: mat-dark-theme($dota-shade-primary, $dota-shade-accent, $dota-shade-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

@@ -1,5 +1,5 @@
-<mat-spinner *ngIf="loading"></mat-spinner>
+<p *ngIf="!player">Please Select a Player</p>
 
-<div *ngIf="!loading">
+<div *ngIf="player">
   <app-player-card [player]='player'></app-player-card>
 </div>

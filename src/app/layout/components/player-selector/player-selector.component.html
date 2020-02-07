@@ -1,0 +1,11 @@
+<div class="player-icon" *ngFor="let player of players">
+  <button mat-raised-button (click)="setSelectedPlayer(player)">
+    <img [src]="player.profile.avatarmedium" [alt]="player.profile.personaname">
+
+    <div *ngIf="player$">
+      <div class="cover1" *ngIf="player$.profile.steamid == player.profile.steamid"></div>
+    </div>
+
+  </button>
+  <p>{{player.profile.personaname}}</p>
+</div>

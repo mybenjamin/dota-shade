@@ -6,7 +6,6 @@ import { PlayerSelectorService } from '../../services/player-selector.service';
 
 // Models
 import { Player } from 'src/app/core/models/Player';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-player-selector',

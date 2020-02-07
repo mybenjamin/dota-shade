@@ -13,6 +13,7 @@ import { PagesModule } from './pages/pages.module';
 // App Components
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
+import { PlayerSelectorComponent } from './layout/components/player-selector/player-selector.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
@@ -20,7 +21,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   declarations: [
     AppComponent,
     LayoutComponent,
-    NotFoundComponent
+    PlayerSelectorComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

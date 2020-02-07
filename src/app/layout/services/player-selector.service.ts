@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Player } from 'src/app/core/models/Player';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,7 @@ export class PlayerSelectorService {
     { id: 107039798, name: '[Æ]Vortex' }
   ];
 
-  selectedPlayer1: Player;
-  selectedPlayer2: Player;
+  player: Subject<Player> = new Subject();
 
   constructor() { }
 }

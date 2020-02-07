@@ -6,6 +6,7 @@ import { PlayerSelectorService } from '../../services/player-selector.service';
 
 // Models
 import { Player } from 'src/app/core/models/Player';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-player-selector',
@@ -15,35 +16,28 @@ import { Player } from 'src/app/core/models/Player';
 export class PlayerSelectorComponent implements OnInit {
 
   players: Array<Player>;
-  isLoading = true;
+  player$: Player;
 
   constructor(
-    private playerSelector: PlayerSelectorService,
+    private selector: PlayerSelectorService,
     private data: DataService
   ) { }
 
   async ngOnInit() {
+    this.selector.player.asObservable().subscribe(x => this.player$ = x);
     this.players = await this.getAllPlayers();
   }
 
   async getAllPlayers() {
     const players: Array<Player> = [];
-    for (const player of this.playerSelector.players) {
+    for (const player of this.selector.players) {
       this.data.getPlayer(player.id).subscribe(p => players.push(p));
     }
     return players;
   }
 
   setSelectedPlayer(player: Player) {
-    if (!this.playerSelector.selectedPlayer1) {
-      this.playerSelector.selectedPlayer1 = player;
-    } else {
-      this.playerSelector.selectedPlayer2 = this.playerSelector.selectedPlayer1;
-      this.playerSelector.selectedPlayer1 = player;
-    }
+    this.selector.player.next(player);
   }
-
-  player1 = () => this.playerSelector.selectedPlayer1;
-  player2 = () => this.playerSelector.selectedPlayer2;
 
 }

@@ -122,8 +122,13 @@
               "devServerTarget": "dota-shade:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "dota-shade"
 }

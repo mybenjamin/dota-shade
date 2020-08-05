@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges, ElementRef } from '@angular/core';
 
 // Models
 import { Player } from 'src/app/core/models/Player';
@@ -8,13 +8,15 @@ import { Player } from 'src/app/core/models/Player';
   templateUrl: './player-card.component.html',
   styleUrls: ['./player-card.component.scss']
 })
-export class PlayerCardComponent implements OnInit {
+export class PlayerCardComponent implements OnChanges {
 
   @Input() player: Player;
+  reload = true;
+  constructor(private el: ElementRef) { }
 
-  constructor() { }
-
-  ngOnInit() { }
+  ngOnChanges() {
+    this.refreshComponent();
+  }
 
   getRankMedalImageUrl(rank: number) {
     const str = rank.toString();
@@ -23,5 +25,12 @@ export class PlayerCardComponent implements OnInit {
       stars: `../../../../assets/images/ranks/rank_star_${str[1] || 1}.png`
     };
     return image;
+  }
+
+  refreshComponent() {
+    this.reload = false;
+    setTimeout(() => {
+      this.reload = true;
+    }, 500);
   }
 }

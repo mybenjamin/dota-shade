@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dota-2-shade": {
+      "hosting": {
+        "dota-shade": [
+          "dota-2-shade"
+        ]
+      }
+    }
+  }
+}
